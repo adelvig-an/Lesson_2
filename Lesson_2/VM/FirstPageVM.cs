@@ -31,11 +31,10 @@ namespace Lesson_2.VM
         public int[] NewArray
         {
             get => newArray;
-            set
-            {
-                newArray = int.Parse(Text);
-            }
+            set => SetProperty(ref newArray, value);
         }
+
+        private bool TryPaseArray = int.TryParse(Text, out NewArray);
 
         int sum = 0, num = 0, max = -100;
 
