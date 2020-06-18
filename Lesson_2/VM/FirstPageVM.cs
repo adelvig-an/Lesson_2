@@ -20,22 +20,53 @@ namespace Lesson_2.VM
             Result = new RelayCommand(_ => ResultAction(MyArray));
         }
 
+        private string[] text;
+        public string[] Text
+        {
+            get => text;
+            set => SetProperty(ref text, value);
+        }
+
         private int[] newArray;
         public int[] NewArray
         {
             get => newArray;
-            set => SetProperty(ref newArray, value);
-        }
-
-        private readonly int sum;
-        public int Sum
-        {
-            get => sum;
             set
             {
-                int sum = 0;
+                newArray = int.Parse(Text);
+            }
+        }
+
+        int sum = 0, num = 0, max = -100;
+
+        private int sumArray;
+        public int Sum
+        {
+            get => sumArray;
+            set
+            {
                 for (int i = 0; i < NewArray.Length; i++)
                     sum += NewArray[i];
+            }
+        }
+
+        private int sumPosArray;
+        public int SumPosArray
+        {
+            get => sumPosArray;
+            set
+            {
+                for (int i = 0; i < NewArray.Length; i++)
+                    if (max < NewArray[i])
+                    {
+                        max = NewArray[i]; //Максимальное значение
+                        num = i + 1; //Номер элемента массива с максимальным значением
+                    }
+                for (int j = num - 2; j >= 0; j--)
+                {
+                    if (NewArray[j] > 0)
+                        sum += NewArray[j]; //Сумма положительных элементов после максимального
+                }
             }
         }
 
