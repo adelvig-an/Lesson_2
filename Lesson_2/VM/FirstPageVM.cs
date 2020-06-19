@@ -18,54 +18,24 @@ namespace Lesson_2.VM
                 Arr = NewArray
             };
             Result = new RelayCommand(_ => ResultAction(MyArray));
+
+            var IntArray = int.TryParse(StrArray, out int value);
         }
 
-        private string[] text;
-        public string[] Text
+        private string strArray;
+        public string StrArray
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => strArray;
+            set => SetProperty(ref strArray, value);
         }
 
         private int[] newArray;
         public int[] NewArray
         {
             get => newArray;
-            set => SetProperty(ref newArray, value);
-        }
-
-        private bool TryPaseArray = int.TryParse(Text, out NewArray);
-
-        int sum = 0, num = 0, max = -100;
-
-        private int sumArray;
-        public int Sum
-        {
-            get => sumArray;
             set
             {
-                for (int i = 0; i < NewArray.Length; i++)
-                    sum += NewArray[i];
-            }
-        }
-
-        private int sumPosArray;
-        public int SumPosArray
-        {
-            get => sumPosArray;
-            set
-            {
-                for (int i = 0; i < NewArray.Length; i++)
-                    if (max < NewArray[i])
-                    {
-                        max = NewArray[i]; //Максимальное значение
-                        num = i + 1; //Номер элемента массива с максимальным значением
-                    }
-                for (int j = num - 2; j >= 0; j--)
-                {
-                    if (NewArray[j] > 0)
-                        sum += NewArray[j]; //Сумма положительных элементов после максимального
-                }
+                SetProperty(ref newArray, value);
             }
         }
 
