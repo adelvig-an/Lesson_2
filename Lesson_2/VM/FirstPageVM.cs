@@ -19,14 +19,27 @@ namespace Lesson_2.VM
             };
             Result = new RelayCommand(_ => ResultAction(MyArray));
 
-            var IntArray = int.TryParse(StrArray, out int value);
+            //var IntArray = int.TryParse(StrArray, out int value);
+            var StrArr = Str.Split();
+            
+            for (int i = 0; i < StrArr.Length; i++)
+            {
+                if (int.TryParse(StrArr[i], out int value))
+                {
+                    NewArray[i] = value;
+                }
+                else
+                    break;
+                
+                //var IntArray = int.TryParse(StrArr, out int NewArray);
+            }
         }
 
-        private string strArray;
-        public string StrArray
+        private string str;
+        public string Str
         {
-            get => strArray;
-            set => SetProperty(ref strArray, value);
+            get => str;
+            set => SetProperty(ref str, value);
         }
 
         private int[] newArray;
