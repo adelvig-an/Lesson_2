@@ -20,26 +20,40 @@ namespace Lesson_2.VM
             Result = new RelayCommand(_ => ResultAction(MyArray));
 
             //var IntArray = int.TryParse(StrArray, out int value);
-            var StrArr = Str.Split();
+            //var StrArr = Str.Split();
             
-            for (int i = 0; i < StrArr.Length; i++)
-            {
-                if (int.TryParse(StrArr[i], out int value))
-                {
-                    NewArray[i] = value;
-                }
-                else
-                    break;
+            //for (int i = 0; i < StrArr.Length; i++)
+            //{
+            //    if (int.TryParse(StrArr[i], out int value))
+            //    {
+            //        NewArray[i] = value;
+            //    }
+            //    else
+            //        break;
                 
-                //var IntArray = int.TryParse(StrArr, out int NewArray);
-            }
+            //    //var IntArray = int.TryParse(StrArr, out int NewArray);
+            //}
         }
 
         private string str;
         public string Str
         {
             get => str;
-            set => SetProperty(ref str, value);
+            set
+            {
+                SetProperty(ref str, value);
+                var StrArr = Str.Split();
+                for (int i = 0; i < StrArr.Length; i++)
+                {
+                    if (int.TryParse(StrArr[i], out int nmb))
+                    {
+                        NewArray[i] = nmb;
+                    }
+                    else
+                        break;
+                }
+            }
+
         }
 
         private int[] newArray;
@@ -49,6 +63,7 @@ namespace Lesson_2.VM
             set
             {
                 SetProperty(ref newArray, value);
+
             }
         }
 

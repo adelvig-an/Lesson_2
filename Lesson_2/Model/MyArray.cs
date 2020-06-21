@@ -11,7 +11,7 @@ namespace Lesson_2.Model
         int sum = 0, num = 0, max = -100;
 
         private int sumArray;
-        public int Sum
+        public int SumArray
         {
             get => sumArray;
             set

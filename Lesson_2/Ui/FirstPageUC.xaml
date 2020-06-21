@@ -33,7 +33,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Margin="5" Text="Введите значения масива (через пробел)" />
-            <TextBox Name="tbValueArray" Margin="5" />
+            <TextBox Name="tbValueArray" Margin="5" Text="{Binding Str}" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
@@ -42,9 +42,9 @@
                 Margin="5"
                 Content="Вывод результата" />
             <TextBlock Margin="5" Text="Сумма элементов массива:" />
-            <TextBox Name="tbSumArray" Margin="5" />
+            <TextBox Name="tbSumArray" Margin="5" Text="{Binding MyArray.SumArray}" />
             <TextBlock Margin="5" Text="Сумма положительных элементов до последнего максимального:" />
-            <TextBox Name="tbSumPosArray" Margin="5" />
+            <TextBox Name="tbSumPosArray" Margin="5" Text="{Binding MyArray.SumPosArray}" />
         </StackPanel>
     </Grid>
 </UserControl>
