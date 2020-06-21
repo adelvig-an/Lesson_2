@@ -43,6 +43,7 @@ namespace Lesson_2.VM
             {
                 SetProperty(ref str, value);
                 var StrArr = Str.Split();
+
                 for (int i = 0; i < StrArr.Length; i++)
                 {
                     if (int.TryParse(StrArr[i], out int nmb))
@@ -63,7 +64,6 @@ namespace Lesson_2.VM
             set
             {
                 SetProperty(ref newArray, value);
-
             }
         }
 
