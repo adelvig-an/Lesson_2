@@ -15,7 +15,7 @@ namespace Lesson_2.VM
         {
             MyArray = new MyArray
             {
-                Arr = NewArray
+                Arr = { }
             };
             Result = new RelayCommand(_ => ResultAction(MyArray));
 
@@ -43,6 +43,7 @@ namespace Lesson_2.VM
             {
                 SetProperty(ref str, value);
                 var StrArr = Str.Split();
+                NewArray = new int[StrArr.Length];
 
                 for (int i = 0; i < StrArr.Length; i++)
                 {

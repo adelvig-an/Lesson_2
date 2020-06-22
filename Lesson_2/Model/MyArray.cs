@@ -13,19 +13,20 @@ namespace Lesson_2.Model
         private int sumArray;
         public int SumArray
         {
-            get => sumArray;
-            set
+            get
             {
                 for (int i = 0; i < Arr.Length; i++)
                     sum += Arr[i];
+
+                return sumArray;
             }
+            
         }
 
         private int sumPosArray;
         public int SumPosArray
         {
-            get => sumPosArray;
-            set
+            get
             {
                 for (int i = 0; i < Arr.Length; i++)
                     if (max < Arr[i])
@@ -38,6 +39,8 @@ namespace Lesson_2.Model
                     if (Arr[j] > 0)
                         sum += Arr[j]; //Сумма положительных элементов после максимального
                 }
+
+                return sumPosArray;
             }
         }
     }
