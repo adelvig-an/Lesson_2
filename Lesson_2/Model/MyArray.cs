@@ -6,7 +6,7 @@ namespace Lesson_2.Model
 {
     public class MyArray
     {
-        public int[] Arr { get; set; }
+        public int[] Arr { get; set; } = { };
 
         int sum = 0, num = 0, max = -100;
 
@@ -20,7 +20,6 @@ namespace Lesson_2.Model
 
                 return sumArray;
             }
-            
         }
 
         private int sumPosArray;

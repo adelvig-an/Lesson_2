@@ -43,35 +43,33 @@ namespace Lesson_2.VM
             {
                 SetProperty(ref str, value);
                 var StrArr = Str.Split();
-                NewArray = new int[StrArr.Length];
-
+                MyArray.Arr = new int[StrArr.Length];
+                
                 for (int i = 0; i < StrArr.Length; i++)
                 {
                     if (int.TryParse(StrArr[i], out int nmb))
                     {
-                        NewArray[i] = nmb;
+                        MyArray.Arr[i] = nmb;
                     }
                     else
                         break;
                 }
             }
-
         }
 
-        private int[] newArray;
-        public int[] NewArray
-        {
-            get => newArray;
-            set
-            {
-                SetProperty(ref newArray, value);
-            }
-        }
+        //private int[] newArray;
+        //public int[] NewArray
+        //{
+        //    get => newArray;
+        //    set
+        //    {
+        //        SetProperty(ref newArray, value);
+        //    }
+        //}
 
         public ICommand Result { get; }
         public void ResultAction(MyArray myArray)
         {
-            myArray.Arr = NewArray;
             OnPropertyChanged(nameof(MyArray));
         }
     }
