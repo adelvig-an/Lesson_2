@@ -8,25 +8,27 @@ namespace Lesson_2.Model
     {
         public int[] Arr { get; set; } = { };
 
-        int sum = 0, num = 0, max = -100;
+        int num = 0, max = -100;
 
-        private int sumArray;
         public int SumArray
         {
             get
             {
+                int sum = 0;
+
                 for (int i = 0; i < Arr.Length; i++)
                     sum += Arr[i];
 
-                return sumArray;
+                return sum;
             }
         }
 
-        private int sumPosArray;
         public int SumPosArray
         {
             get
             {
+                int sum = 0;
+                
                 for (int i = 0; i < Arr.Length; i++)
                     if (max < Arr[i])
                     {
@@ -39,7 +41,7 @@ namespace Lesson_2.Model
                         sum += Arr[j]; //Сумма положительных элементов после максимального
                 }
 
-                return sumPosArray;
+                return sum;
             }
         }
     }
